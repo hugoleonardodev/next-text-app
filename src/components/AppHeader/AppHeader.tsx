@@ -47,7 +47,7 @@ const AppHeader: React.FC = () => {
             <AppBar position="static" color="secondary">
                 <StyledToolbar>
                     <Typography variant="h5" noWrap component="div" sx={flexGrowFlexStart}>
-                        MUI
+                        Breaking Bad Facts
                     </Typography>
                     {/* <TextField id="standard-basic" label="Standard" variant="standard" sx={flexGrowFlexEnd} />
                     <IconButton size="large" aria-label="search" color="inherit" sx={flexGrowFlexEnd}>
