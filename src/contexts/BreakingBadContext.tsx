@@ -1,8 +1,11 @@
 import React from 'react'
+import { getFirstTenCharacters } from 'src/services'
 
 export interface BreakingBadContextData {
     isLoading: boolean
     setIsLoading: React.Dispatch<React.SetStateAction<boolean>>
+    pageCounter: number
+    setPageCounter: React.Dispatch<React.SetStateAction<number>>
     characters: ApiRespnse.Character[]
     setCharacters: React.Dispatch<React.SetStateAction<ApiRespnse.Character[]>>
     characterEpisodes: ApiRespnse.Episode[]
@@ -12,9 +15,27 @@ export interface BreakingBadContextData {
 export const BreakingBadContext = React.createContext<BreakingBadContextData>({} as BreakingBadContextData)
 
 export const BreakingBadProvider: React.FC = ({ children }) => {
-    const [isLoading, setIsLoading] = React.useState(false)
-    const [characters, setCharacters] = React.useState([])
-    const [characterEpisodes, setCharactersEpisodes] = React.useState([])
+    const [isLoading, setIsLoading] = React.useState(true)
+    const [pageCounter, setPageCounter] = React.useState(0)
+    const [characters, setCharacters] = React.useState<ApiRespnse.Character[]>([])
+    const [characterEpisodes, setCharactersEpisodes] = React.useState<ApiRespnse.Episode[]>([])
+
+    const handleFirstTenCharacters = React.useCallback(async () => {
+        setIsLoading(true)
+
+        const firstTenCharacters = await getFirstTenCharacters()
+        setCharacters(firstTenCharacters)
+
+        setPageCounter(1)
+
+        setIsLoading(false)
+    }, [])
+
+    React.useEffect(() => {
+        ;(async () => {
+            await handleFirstTenCharacters()
+        })()
+    }, [handleFirstTenCharacters])
 
     return (
         <BreakingBadContext.Provider
@@ -22,6 +43,8 @@ export const BreakingBadProvider: React.FC = ({ children }) => {
             value={{
                 isLoading,
                 setIsLoading,
+                pageCounter,
+                setPageCounter,
                 characters,
                 setCharacters,
                 characterEpisodes,
