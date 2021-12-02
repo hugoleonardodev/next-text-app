@@ -2,16 +2,29 @@ import * as React from 'react'
 
 import AccountCircle from '@mui/icons-material/AccountCircle'
 import SearchIcon from '@mui/icons-material/Search'
-import { Menu, MenuItem } from '@mui/material'
+import { PopoverOrigin } from '@mui/material'
 import AppBar from '@mui/material/AppBar'
 import Box from '@mui/material/Box'
 import IconButton from '@mui/material/IconButton'
+import Menu from '@mui/material/Menu'
+import MenuItem from '@mui/material/MenuItem'
+import Toolbar from '@mui/material/Toolbar'
 import Typography from '@mui/material/Typography'
+import { styled } from '@mui/system'
 
-import { StyledToolbar } from './AppHeader.styles'
+const StyledToolbar = styled(Toolbar)(({ theme }) => ({
+    alignItems: 'flex-start',
+    paddingTop: '16px',
+    paddingBottom: '16px',
+    // Override media queries injected by theme.mixins.toolbar
+    '@media all': {
+        minHeight: 128,
+    },
+}))
 
 const AppHeader: React.FC = () => {
     const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null)
+
     const handleMenu = React.useCallback((event: React.MouseEvent<HTMLElement>) => {
         setAnchorEl(event.currentTarget)
     }, [])
@@ -19,11 +32,22 @@ const AppHeader: React.FC = () => {
     const handleClose = React.useCallback(() => {
         setAnchorEl(null)
     }, [])
+
+    const flexGrow = React.useMemo(() => ({ flexGrow: 1 }), [])
+    const flexGrowFlexStart = React.useMemo(() => ({ flexGrow: 1, alignSelf: 'flex-start' }), [])
+    const verticalHorizotal = React.useMemo(
+        () => ({
+            vertical: 'top',
+            horizontal: 'right',
+        }),
+        [],
+    ) as PopoverOrigin
+
     return (
-        <Box sx={{ flexGrow: 1 }}>
+        <Box sx={flexGrow}>
             <AppBar position="static">
                 <StyledToolbar>
-                    <Typography variant="h5" noWrap component="div" sx={{ flexGrow: 1, alignSelf: 'flex-start' }}>
+                    <Typography variant="h5" noWrap component="div" sx={flexGrowFlexStart}>
                         MUI
                     </Typography>
                     <IconButton size="large" aria-label="search" color="inherit">
@@ -43,15 +67,9 @@ const AppHeader: React.FC = () => {
                         <Menu
                             id="menu-appbar"
                             anchorEl={anchorEl}
-                            anchorOrigin={{
-                                vertical: 'top',
-                                horizontal: 'right',
-                            }}
+                            anchorOrigin={verticalHorizotal}
                             keepMounted
-                            transformOrigin={{
-                                vertical: 'top',
-                                horizontal: 'right',
-                            }}
+                            transformOrigin={verticalHorizotal}
                             open={Boolean(anchorEl)}
                             onClose={handleClose}
                         >
