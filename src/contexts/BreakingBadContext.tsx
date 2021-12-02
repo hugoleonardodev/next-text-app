@@ -33,9 +33,8 @@ export const BreakingBadProvider: React.FC = ({ children }) => {
     }, [])
 
     React.useEffect(() => {
-        (async () => {
-            await handleFirstTenCharacters()
-        })()
+        // eslint-disable-next-line prettier/prettier
+        (async () => await handleFirstTenCharacters())()
     }, [handleFirstTenCharacters])
 
     const context = React.useMemo(
@@ -52,9 +51,7 @@ export const BreakingBadProvider: React.FC = ({ children }) => {
         [characterEpisodes, characters, isLoading, pageCounter],
     )
 
-    return (
-        <BreakingBadContext.Provider value={context}>{children}</BreakingBadContext.Provider>
-    )
+    return <BreakingBadContext.Provider value={context}>{children}</BreakingBadContext.Provider>
 }
 
 export const useBreakingBad = (): BreakingBadContextData => {

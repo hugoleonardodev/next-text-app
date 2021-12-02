@@ -12,9 +12,9 @@ import { StyledToolbar } from './AppHeader.styles'
 
 const AppHeader: React.FC = () => {
     const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null)
-const handleMenu = React.useCallback((event: React.MouseEvent<HTMLElement>) => {
-    setAnchorEl(event.currentTarget)
-}, [])
+    const handleMenu = React.useCallback((event: React.MouseEvent<HTMLElement>) => {
+        setAnchorEl(event.currentTarget)
+    }, [])
 
     const handleClose = React.useCallback(() => {
         setAnchorEl(null)
@@ -23,7 +23,7 @@ const handleMenu = React.useCallback((event: React.MouseEvent<HTMLElement>) => {
         <Box sx={{ flexGrow: 1 }}>
             <AppBar position="static">
                 <StyledToolbar>
-                    <Typography variant="h5" noWrap component="div" sx={{ flexGrow: 1, alignSelf: 'flex-end' }}>
+                    <Typography variant="h5" noWrap component="div" sx={{ flexGrow: 1, alignSelf: 'flex-start' }}>
                         MUI
                     </Typography>
                     <IconButton size="large" aria-label="search" color="inherit">
