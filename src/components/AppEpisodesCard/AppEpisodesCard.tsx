@@ -1,30 +1,16 @@
 import * as React from 'react'
 
-import ButtonBase from '@mui/material/ButtonBase'
 import Grid from '@mui/material/Grid'
 import Paper from '@mui/material/Paper'
-import { styled } from '@mui/material/styles'
 import Typography from '@mui/material/Typography'
 
 import { useBreakingBad } from '@contexts/BreakingBadContext'
-
-const Img = styled('img')({
-    margin: 'auto',
-    display: 'block',
-    maxWidth: '100%',
-    maxHeight: '100%',
-})
 
 const AppEpisodesCard: React.FC = () => {
     const { selectedCharacter } = useBreakingBad()
     return (
         <Paper sx={{ p: 2, margin: 'auto', maxWidth: 500, flexGrow: 1 }}>
             <Grid container spacing={2}>
-                {/* <Grid item>
-                    <ButtonBase sx={{ width: 128, height: 128 }}>
-                        <Img alt="complex" src={selectedCharacter[0].img} />
-                    </ButtonBase>
-                </Grid> */}
                 <Grid item xs={12} sm container>
                     <Grid item xs container direction="column" spacing={2}>
                         <Grid item xs>
@@ -50,11 +36,6 @@ const AppEpisodesCard: React.FC = () => {
                             </Typography>
                         </Grid>
                     </Grid>
-                    {/* <Grid item>
-                        <Typography variant="subtitle1" component="div">
-                            <strong>Status:</strong> {selectedCharacter[0].status}
-                        </Typography>
-                    </Grid> */}
                 </Grid>
             </Grid>
         </Paper>

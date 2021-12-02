@@ -57,7 +57,7 @@ const AppTable: React.FC = () => {
                                 </TableCell>
                                 <TableCell align="left">{character.name}</TableCell>
                                 <TableCell align="left">{character.status}</TableCell>
-                                <TableCell align="left"><AppModal characterId={character.char_id}/></TableCell>
+                                <TableCell align="left"><AppModal characterId={character.char_id} characterName={character.name}/></TableCell>
                             </TableRow>
                         ))}
                 </TableBody>

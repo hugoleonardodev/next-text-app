@@ -8,18 +8,19 @@ import { useBreakingBad } from '@contexts/BreakingBadContext'
 
 type TCharacterDetailsLinkProperties = {
     characterId: number
+    characterName?: string
 }
 
-const ResponsiveDialog: React.FC<TCharacterDetailsLinkProperties> = ({ characterId }) => {
+const AppModal: React.FC<TCharacterDetailsLinkProperties> = ({ characterId, characterName }) => {
     const router = useRouter()
     const { handleSelectCharacter } = useBreakingBad()
 
     const handleClickOpen = React.useCallback(() => {
         // eslint-disable-next-line prettier/prettier
-        (async () => await handleSelectCharacter(characterId))()
+        (async () => await handleSelectCharacter(characterId, characterName))()
 
         router.push(`/character/${characterId}`)
-    }, [characterId, handleSelectCharacter, router])
+    }, [characterId, characterName, handleSelectCharacter, router])
 
     return (
         <Button variant="contained" onClick={handleClickOpen} color="secondary">
@@ -28,4 +29,4 @@ const ResponsiveDialog: React.FC<TCharacterDetailsLinkProperties> = ({ character
     )
 }
 
-export default ResponsiveDialog
+export default AppModal
