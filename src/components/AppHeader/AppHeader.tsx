@@ -1,7 +1,6 @@
 import * as React from 'react'
 
 import AccountCircle from '@mui/icons-material/AccountCircle'
-import SearchIcon from '@mui/icons-material/Search'
 import { PopoverOrigin } from '@mui/material'
 import AppBar from '@mui/material/AppBar'
 import Box from '@mui/material/Box'
@@ -18,7 +17,7 @@ const StyledToolbar = styled(Toolbar)(({ theme }) => ({
     paddingBottom: '16px',
     // Override media queries injected by theme.mixins.toolbar
     '@media all': {
-        minHeight: 128,
+        minHeight: '72px',
     },
 }))
 
@@ -45,14 +44,15 @@ const AppHeader: React.FC = () => {
 
     return (
         <Box sx={flexGrow}>
-            <AppBar position="static">
+            <AppBar position="static" color="secondary">
                 <StyledToolbar>
                     <Typography variant="h5" noWrap component="div" sx={flexGrowFlexStart}>
                         MUI
                     </Typography>
-                    <IconButton size="large" aria-label="search" color="inherit">
+                    {/* <TextField id="standard-basic" label="Standard" variant="standard" sx={flexGrowFlexEnd} />
+                    <IconButton size="large" aria-label="search" color="inherit" sx={flexGrowFlexEnd}>
                         <SearchIcon />
-                    </IconButton>
+                    </IconButton> */}
                     <div>
                         <IconButton
                             size="large"
