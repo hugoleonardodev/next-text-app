@@ -1,9 +1,10 @@
 import type { AppProps } from 'next/app'
 import Head from 'next/head'
 import * as React from 'react'
+import { ThemeProvider } from 'styled-components'
 
 import CssBaseline from '@mui/material/CssBaseline'
-import { ThemeProvider } from '@mui/material/styles'
+// import { ThemeProvider } from '@mui/material/styles'
 
 import { BreakingBadProvider } from '@contexts/BreakingBadContext'
 
@@ -12,7 +13,7 @@ import theme from '../src/theme'
 const MyApp = (props: AppProps): JSX.Element => {
     const { Component, pageProps } = props
     return (
-        <React.Fragment>
+        <>
             <Head>
                 <title>Next App</title>
                 <link href="/favicon.ico" rel="icon" />
@@ -24,7 +25,7 @@ const MyApp = (props: AppProps): JSX.Element => {
                     <Component {...pageProps} />
                 </ThemeProvider>
             </BreakingBadProvider>
-        </React.Fragment>
+        </>
     )
 }
 

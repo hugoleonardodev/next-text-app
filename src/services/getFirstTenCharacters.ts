@@ -5,7 +5,7 @@ const STATUS_OK = 200
 
 // POST: 'http://localhost:3000/api/episodes'
 const getFirstTenCharacters = async (): Promise<ApiRespnse.Character[]> => {
-    const url = `https://www.breakingbadapi.com/api/characters?limit=10&offset=10`
+    const url = 'https://www.breakingbadapi.com/api/characters?limit=10&offset=10'
 
     const response = await axios({
         url,

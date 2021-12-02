@@ -1,5 +1,6 @@
 import React from 'react'
-import { getFirstTenCharacters } from 'src/services'
+
+import getFirstTenCharacters from '@services/getFirstTenCharacters'
 
 export interface BreakingBadContextData {
     isLoading: boolean
@@ -37,23 +38,20 @@ export const BreakingBadProvider: React.FC = ({ children }) => {
         })()
     }, [handleFirstTenCharacters])
 
-    return (
-        <BreakingBadContext.Provider
-            // eslint-disable-next-line react-perf/jsx-no-new-object-as-prop
-            value={{
-                isLoading,
-                setIsLoading,
-                pageCounter,
-                setPageCounter,
-                characters,
-                setCharacters,
-                characterEpisodes,
-                setCharactersEpisodes,
-            }}
-        >
-            {children}
-        </BreakingBadContext.Provider>
+    const context = React.useMemo(
+        () => ({
+            isLoading,
+            setIsLoading,
+            pageCounter,
+            setPageCounter,
+            characters,
+            setCharacters,
+            characterEpisodes,
+            setCharactersEpisodes,
+        }),
+        [characterEpisodes, characters, isLoading, pageCounter],
     )
+    return <BreakingBadContext.Provider value={context}>{children}</BreakingBadContext.Provider>
 }
 
 export const useBreakingBad = (): BreakingBadContextData => {
