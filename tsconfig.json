@@ -20,8 +20,9 @@
             "@mui/styled-engine": ["./node_modules/@mui/styled-engine-sc"], // this mapping is relative to "baseUrl"
             "@pages/*": ["./pages/*"],
             "@public/*": ["./public/*"],
-            "@src/*": ["./*"],
-            "@test/*": ["./test/*"]
+            "@test/*": ["./test/*"],
+            "@contexts/*": ["./src/contexts/*"],
+            "@components/*": ["./src/components/*"]
         },
         "typeRoots": ["src/common/types", "./node_modules/@types"],
         "allowJs": true,

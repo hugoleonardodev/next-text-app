@@ -4,6 +4,7 @@ import { NextApiRequest, NextApiResponse } from 'next'
 
 const STATUS_OK = 200
 
+// POST: 'http://localhost:3000/api/episodes'
 const getEpisodesByCharacterName = async (req: NextApiRequest, res: NextApiResponse): Promise<void> => {
     const { characterName } = req.body
 
