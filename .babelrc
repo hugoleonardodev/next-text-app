@@ -15,7 +15,8 @@
                             "^@public/(.+)": "./public/\\1",
                             "^@tests/(.+)": "./tests/\\1",
                             "^@contexts/(.+)": "./src/contexts/\\1",
-                            "^@components/(.+)": "./src/components/\\1"
+                            "^@components/(.+)": "./src/components/\\1",
+                            "^@services/(.+)": "./src/services/\\1"
                         }
                     }
                 ]
@@ -36,7 +37,8 @@
                             "^@public/(.+)": "./public/\\1",
                             "^@tests/(.+)": "./tests/\\1",
                             "^@contexts/(.+)": "./src/contexts/\\1",
-                            "^@components/(.+)": "./src/components/\\1"
+                            "^@components/(.+)": "./src/components/\\1",
+                            "^@services/(.+)": "./src/services/\\1"
                         }
                     }
                 ]

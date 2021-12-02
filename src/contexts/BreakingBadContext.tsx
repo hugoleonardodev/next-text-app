@@ -1,5 +1,6 @@
 import React from 'react'
-import { getFirstTenCharacters } from 'src/services'
+
+import getFirstTenCharacters from '@services/getFirstTenCharacters'
 
 export interface BreakingBadContextData {
     isLoading: boolean
@@ -32,7 +33,7 @@ export const BreakingBadProvider: React.FC = ({ children }) => {
     }, [])
 
     React.useEffect(() => {
-        ;(async () => {
+        (async () => {
             await handleFirstTenCharacters()
         })()
     }, [handleFirstTenCharacters])
