@@ -10,7 +10,7 @@
                         "root": ["."],
                         "extensions": [".js", ".jsx", ".ts", ".tsx"],
                         "alias": {
-                            "@mui/styled-engine": "@mui/styled-engine-sc",
+                            "^@mui/styled-engine": "./node_modules/@mui/styled-engine-sc",
                             "^@pages/(.+)": "./pages/\\1",
                             "^@public/(.+)": "./public/\\1",
                             "^@tests/(.+)": "./tests/\\1",
@@ -32,7 +32,7 @@
                         "root": ["."],
                         "extensions": [".js", ".jsx", ".ts", ".tsx"],
                         "alias": {
-                            "@mui/styled-engine": "@mui/styled-engine-sc",
+                            "^@mui/styled-engine": "./node_modules/@mui/styled-engine-sc",
                             "^@pages/(.+)": "./pages/\\1",
                             "^@public/(.+)": "./public/\\1",
                             "^@tests/(.+)": "./tests/\\1",
