@@ -38,22 +38,22 @@ export const BreakingBadProvider: React.FC = ({ children }) => {
         })()
     }, [handleFirstTenCharacters])
 
+    const context = React.useMemo(
+        () => ({
+            isLoading,
+            setIsLoading,
+            pageCounter,
+            setPageCounter,
+            characters,
+            setCharacters,
+            characterEpisodes,
+            setCharactersEpisodes,
+        }),
+        [characterEpisodes, characters, isLoading, pageCounter],
+    )
+
     return (
-        <BreakingBadContext.Provider
-            // eslint-disable-next-line react-perf/jsx-no-new-object-as-prop
-            value={{
-                isLoading,
-                setIsLoading,
-                pageCounter,
-                setPageCounter,
-                characters,
-                setCharacters,
-                characterEpisodes,
-                setCharactersEpisodes,
-            }}
-        >
-            {children}
-        </BreakingBadContext.Provider>
+        <BreakingBadContext.Provider value={context}>{children}</BreakingBadContext.Provider>
     )
 }
 

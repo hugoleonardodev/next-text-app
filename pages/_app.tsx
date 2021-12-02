@@ -1,9 +1,9 @@
 import type { AppProps } from 'next/app'
 import Head from 'next/head'
 import * as React from 'react'
+import { ThemeProvider } from 'styled-components'
 
 import CssBaseline from '@mui/material/CssBaseline'
-import { ThemeProvider } from '@mui/material/styles'
 
 import { BreakingBadProvider } from '@contexts/BreakingBadContext'
 

@@ -23,6 +23,7 @@
         ]
     },
     "dependencies": {
+        "@mui/icons-material": "^5.2.0",
         "@mui/material": "^5.2.2",
         "@mui/styled-engine-sc": "^5.1.0",
         "axios": "^0.24.0",
