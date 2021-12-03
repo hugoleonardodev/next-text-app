@@ -1,3 +1,51 @@
 {
-  "presets": ["next/babel"]
+    "env": {
+        "development": {
+            "presets": ["next/babel"],
+            "plugins": [
+                ["styled-components", { "ssr": true, "displayName": false, "preprocess": false }],
+                [
+                    "module-resolver",
+                    {
+                        "root": ["."],
+                        "extensions": [".js", ".jsx", ".ts", ".tsx"],
+                        "alias": {
+                            "@mui/styled-engine": "@mui/styled-engine-sc",
+                            "^@pages/(.+)": "./pages/\\1",
+                            "^@public/(.+)": "./public/\\1",
+                            "^@tests/(.+)": "./tests/\\1",
+                            "^@contexts/(.+)": "./src/contexts/\\1",
+                            "^@components/(.+)": "./src/components/\\1",
+                            "^@services/(.+)": "./src/services/\\1"
+                        }
+                    }
+                ]
+            ]
+        },
+        "production": {
+            "presets": ["next/babel"],
+            "plugins": [
+                ["styled-components", { "ssr": true, "displayName": false, "preprocess": false }],
+                [
+                    "module-resolver",
+                    {
+                        "root": ["."],
+                        "extensions": [".js", ".jsx", ".ts", ".tsx"],
+                        "alias": {
+                            "@mui/styled-engine": "@mui/styled-engine-sc",
+                            "^@pages/(.+)": "./pages/\\1",
+                            "^@public/(.+)": "./public/\\1",
+                            "^@tests/(.+)": "./tests/\\1",
+                            "^@contexts/(.+)": "./src/contexts/\\1",
+                            "^@components/(.+)": "./src/components/\\1",
+                            "^@services/(.+)": "./src/services/\\1"
+                        }
+                    }
+                ]
+            ]
+        },
+        "test": {
+            "presets": ["next/babel"]
+        }
+    }
 }

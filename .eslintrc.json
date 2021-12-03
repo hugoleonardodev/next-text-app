@@ -1,47 +1,87 @@
 {
-  "parser": "@typescript-eslint/parser",
-  "plugins": ["@typescript-eslint"],
-  "extends": [
-    "eslint:recommended",
-    "plugin:react/recommended",
-    "plugin:@typescript-eslint/recommended"
-    // Uncomment the following lines to enable eslint-config-prettier
-    // Is not enabled right now to avoid issues with the Next.js repo
-    // "prettier",
-  ],
-  "env": {
-    "es6": true,
-    "browser": true,
-    "jest": true,
-    "node": true
-  },
-  "settings": {
-    "react": {
-      "version": "detect"
-    }
-  },
-  "rules": {
-    "react/react-in-jsx-scope": 0,
-    "react/display-name": 0,
-    "react/prop-types": 0,
-    "@typescript-eslint/explicit-function-return-type": 0,
-    "@typescript-eslint/explicit-member-accessibility": 0,
-    "@typescript-eslint/indent": 0,
-    "@typescript-eslint/member-delimiter-style": 0,
-    "@typescript-eslint/no-explicit-any": 0,
-    "@typescript-eslint/no-var-requires": 0,
-    "@typescript-eslint/no-use-before-define": 0,
-    "@typescript-eslint/no-unused-vars": [
-      2,
-      {
-        "argsIgnorePattern": "^_"
-      }
+    "env": {
+        "es6": true,
+        "browser": true,
+        "jest": true,
+        "node": true
+    },
+    "settings": {
+        "react": {
+            "version": "detect"
+        }
+    },
+    "extends": [
+        "airbnb",
+        "eslint:recommended",
+        "plugin:react/recommended",
+        "plugin:prettier/recommended",
+        // "plugin:react-perf/recommended",
+        "plugin:@typescript-eslint/recommended",
+        "plugin:eslint-plugin-react-hooks/recommended"
     ],
-    "no-console": [
-      2,
-      {
-        "allow": ["warn", "error"]
-      }
-    ]
-  }
+    "parser": "@typescript-eslint/parser",
+    "parserOptions": {
+        "ecmaFeatures": {
+            "jsx": true
+        },
+        "ecmaVersion": 2020,
+        "sourceType": "module"
+    },
+    "plugins": ["react", "import", "import-helpers", "@typescript-eslint"],
+    "rules": {
+        "react/react-in-jsx-scope": 0,
+        "react/display-name": 0,
+        "react/prop-types": 0,
+        "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx", ".ts", "tsx"] }],
+        "react/jsx-props-no-spreading": "off",
+        "react/function-component-definition": "off",
+        // "react-perf/jsx-no-new-object-as-prop": "off",
+        "import/extensions": "off",
+        "arrow-body-style": "off",
+        "complexity": ["error", 10],
+        "function-call-argument-newline": ["error", "consistent"],
+        "func-names": "off",
+        "indent": ["error", 4],
+        "no-extra-semi": "off",
+        "no-unused-vars": "off",
+        "prefer-arrow-callback": "off",
+        "max-len": ["error", { "ignoreRegExpLiterals": true, "ignoreTemplateLiterals": true , "ignoreUrls": true, "tabWidth": 4,  "code": 120 }],
+        "semi": ["error", "never"],
+        "@typescript-eslint/explicit-function-return-type": 0,
+        "@typescript-eslint/explicit-member-accessibility": 0,
+        "@typescript-eslint/indent": 0,
+        "@typescript-eslint/member-delimiter-style": 0,
+        "@typescript-eslint/no-explicit-any": 0,
+        "@typescript-eslint/no-var-requires": 0,
+        "@typescript-eslint/no-use-before-define": 0,
+        "@typescript-eslint/no-extra-semi": ["error"],
+        "@typescript-eslint/no-magic-numbers": [
+            "error",
+            {
+                "ignoreArrayIndexes": true,
+                "ignoreDefaultValues": true,
+                "ignore": [-1, 0, 1]
+            }
+        ],
+        "@typescript-eslint/no-unused-vars": [
+            2,
+            {
+                "argsIgnorePattern": "^_"
+            }
+        ],
+        "no-console": [
+            2,
+            {
+                "allow": ["warn", "error"]
+            }
+        ],
+        "import-helpers/order-imports": [
+            "warn",
+            {
+                "newlinesBetween": "always", // new line between groups
+                "groups": ["module", "/^@testing-library/", "/^@mui/", "/^@/", ["parent", "sibling", "index"]],
+                "alphabetize": { "order": "asc", "ignoreCase": true }
+            }
+        ]
+    }
 }
