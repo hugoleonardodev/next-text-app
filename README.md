@@ -32,6 +32,10 @@ yarn create next-app --example with-typescript-eslint-jest with-typescript-eslin
 
 Deploy it to the cloud with [Vercel](https://vercel.com/new?utm_source=github&utm_medium=readme&utm_campaign=next-example) ([Documentation](https://nextjs.org/docs/deployment)).
 
+## Brach com o projeto completo
+
+[projeto completo](https://github.com/hugoleonardodev/next-text-app/tree/hugo-leonardo-fixing-modules-bug)
+
 ## How to run
 
 ```bash
