@@ -1,4 +1,3 @@
-import { useRouter } from 'next/dist/client/router'
 import React from 'react'
 
 import { Container } from '@mui/material'
@@ -8,13 +7,15 @@ import AppCharacterEpisodes from '@components/AppCharacterEpisodes'
 import AppHeader from '@components/AppHeader'
 
 const Index: React.FC = () => {
-    const router = useRouter()
     return (
         <Container maxWidth="lg">
             <AppHeader />
-            {JSON.stringify(router.query)}
-            <AppCharacterCard />
-            <AppCharacterEpisodes />
+            <section>
+                <AppCharacterCard />
+            </section>
+            <section>
+                <AppCharacterEpisodes />
+            </section>
         </Container>
     )
 }

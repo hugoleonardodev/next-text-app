@@ -1,3 +1,4 @@
+import Image from 'next/image'
 import * as React from 'react'
 
 import AccountCircle from '@mui/icons-material/AccountCircle'
@@ -39,20 +40,17 @@ const AppHeader: React.FC = () => {
             vertical: 'top',
             horizontal: 'right',
         }),
-        [],
+        []
     ) as PopoverOrigin
 
     return (
         <Box sx={flexGrow}>
-            <AppBar position="static" color="secondary">
+            <AppBar position="static" color="primary">
                 <StyledToolbar>
+                    <Image src="/breaking_bad_logo.png" alt="Breaking Bad Facts" width={160} height={68} />
                     <Typography variant="h5" noWrap component="div" sx={flexGrowFlexStart}>
-                        Breaking Bad Facts
+                        {' '}
                     </Typography>
-                    {/* <TextField id="standard-basic" label="Standard" variant="standard" sx={flexGrowFlexEnd} />
-                    <IconButton size="large" aria-label="search" color="inherit" sx={flexGrowFlexEnd}>
-                        <SearchIcon />
-                    </IconButton> */}
                     <div>
                         <IconButton
                             size="large"

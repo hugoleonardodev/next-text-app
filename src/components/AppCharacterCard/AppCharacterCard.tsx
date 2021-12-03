@@ -6,6 +6,7 @@ import Paper from '@mui/material/Paper'
 import { styled } from '@mui/material/styles'
 import Typography from '@mui/material/Typography'
 
+import { useStyles } from '@common/hooks'
 import { useBreakingBad } from '@contexts/BreakingBadContext'
 
 const Img = styled('img')({
@@ -17,8 +18,9 @@ const Img = styled('img')({
 
 const AppCharacterCard: React.FC = () => {
     const { selectedCharacter } = useBreakingBad()
+    const styles = useStyles()
     return (
-        <Paper sx={{ p: 2, margin: 'auto', maxWidth: 500, flexGrow: 1 }}>
+        <Paper sx={{ p: 2, margin: 'auto', maxWidth: 500, flexGrow: 1 }} className={styles.sectionMarginTop}>
             <Grid container spacing={2}>
                 <Grid item>
                     <ButtonBase sx={{ width: 128, height: 128 }}>

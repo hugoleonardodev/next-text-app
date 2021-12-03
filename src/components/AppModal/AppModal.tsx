@@ -23,8 +23,8 @@ const AppModal: React.FC<TCharacterDetailsLinkProperties> = ({ characterId, char
     }, [characterId, characterName, handleSelectCharacter, router])
 
     return (
-        <Button variant="contained" onClick={handleClickOpen} color="secondary">
-            <Image src="/eye_red.svg" alt="Picture of the author" width={36} height={36} />
+        <Button variant="contained" onClick={handleClickOpen} color="primary">
+            <Image src="/eye_red.svg" alt="Eye Red Icon" width={36} height={36} />
         </Button>
     )
 }

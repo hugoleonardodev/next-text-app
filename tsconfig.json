@@ -20,8 +20,9 @@
             "@pages/*": ["./pages/*"],
             "@public/*": ["./public/*"],
             "@test/*": ["./test/*"],
-            "@contexts/*": ["./src/contexts/*"],
+            "@common/*": ["./src/common/*"],
             "@components/*": ["./src/components/*"],
+            "@contexts/*": ["./src/contexts/*"],
             "@services/*": ["./src/services/*"],
             "@styles/*": ["./src/styles/*"]
         },

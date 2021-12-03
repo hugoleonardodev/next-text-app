@@ -1,1 +1,1 @@
-export { default } from './AppCharacterEpisode'
+export { default } from './AppCharacterEpisodes'
