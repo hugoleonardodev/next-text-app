@@ -31,3 +31,43 @@ yarn create next-app --example with-typescript-eslint-jest with-typescript-eslin
 ```
 
 Deploy it to the cloud with [Vercel](https://vercel.com/new?utm_source=github&utm_medium=readme&utm_campaign=next-example) ([Documentation](https://nextjs.org/docs/deployment)).
+
+## How to run
+
+```bash
+yarn install
+yarn dev
+```
+
+## Features
+
+-   Layout Material UI
+-   Cabeçalho com logo e opções
+-   Tabela listando personagens
+-   Rota com detalhes do personagem
+-   Api que retorna os episodeos de cada personagem
+-   Skeleton Loading
+-   Paginação
+
+## To do
+
+1) Usar outro approach na paginação com rotas dinamicas, passando Link como render item para o componente Pagination
+2) Implementar uma página de Not Found customizada
+3) Implementar testes unitários com Jest e Testing library (o ambiente foi configurado, mas não deu tempo de fazer os testes)
+4) Implementar testes end-to-end com Cypress
+5) Melhorar o layout e o CSS
+
+## Considerações finais
+
+Tive muito problema com o styled Components como engine do Material UI no início. Fui forçado a fazer com a engine do Emotion.
+Depois, no final, descobri que o onChange do Pagination não está reconhecendo a função passada como callback.
+Então o que eu consegui foi forçar com useEffect e addEventListeners pra conseguir executar a ideia da paginação com a API.
+A outra ideia que eu tive foi criar rotas com auxílio da API do Next para só depois renderizar a página. Mas seria uma ideia errada no começo.
+Visto que a própria API retorna o resultado com paginação para os personagens.
+
+Fiquei feliz com o desafio. Estou disponível para início imediato.
+
+Email: `hugoleonardo.dev@gmail.com`
+Telefone/Zap: `31999699361`
+[Linkedin](https://www.linkedin.com/in/hugo-leonardo-matosinhos-de-souza/)
+[GitHub](https://github.com/hugoleonardodev)
