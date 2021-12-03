@@ -15,9 +15,8 @@ const AppModal: React.FC<TCharacterDetailsLinkProperties> = ({ characterId, char
     const router = useRouter()
     const { handleSelectCharacter } = useBreakingBad()
 
-    const handleClickOpen = React.useCallback(() => {
-        // eslint-disable-next-line prettier/prettier
-        (async () => await handleSelectCharacter(characterId, characterName))()
+    const handleClickOpen = React.useCallback(async () => {
+        await handleSelectCharacter(characterId, characterName)
 
         router.push(`/character/${characterId}`)
     }, [characterId, characterName, handleSelectCharacter, router])

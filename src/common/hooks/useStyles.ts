@@ -18,6 +18,13 @@ const useStyles = makeStyles((theme: Theme) => ({
     sectionMarginTop: {
         marginTop: '2em',
     },
+    footerStyles: {
+        backgroundColor: theme.palette.primary.main,
+    },
+    paginationStyles: {
+        paddingTop: '0.5rem',
+        color: theme.palette.primary.contrastText,
+    },
 }))
 
 export default useStyles

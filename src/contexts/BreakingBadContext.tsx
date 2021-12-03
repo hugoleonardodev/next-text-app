@@ -1,14 +1,16 @@
 import React from 'react'
 
 import getFirstTenCharacters from '@services/getFirstTenCharacters'
+import getSelectedPage from '@services/getSelectdPage'
 import getSelectedCharacter from '@services/getSelectedCharacter'
 import postCharacterNameToGetEpisodes from '@services/postCharacterNameToGetEpisodes'
 
 export interface BreakingBadContextData {
     isLoading: boolean
     // setIsLoading: React.Dispatch<React.SetStateAction<boolean>>
-    pageCounter: number
-    // setPageCounter: React.Dispatch<React.SetStateAction<number>>
+    pageCounter: string
+    // setPageCounter: React.Dispatch<React.SetStateAction<number>>handlePageChange
+    handlePageChange: (page: string) => Promise<void>
     selectedCharacter: ApiRespnse.Character[]
     // setSelectedCharacter: React.Dispatch<React.SetStateAction<ApiRespnse.Character[]>>
     handleSelectCharacter: (characterId: string | number, characterName: string | undefined) => Promise<void>
@@ -22,10 +24,20 @@ export const BreakingBadContext = React.createContext<BreakingBadContextData>({}
 
 export const BreakingBadProvider: React.FC = ({ children }) => {
     const [isLoading, setIsLoading] = React.useState(true)
-    const [pageCounter, setPageCounter] = React.useState(0)
+    const [pageCounter, setPageCounter] = React.useState('1')
     const [selectedCharacter, setSelectedCharacter] = React.useState<ApiRespnse.Character[]>([])
     const [characters, setCharacters] = React.useState<ApiRespnse.Character[]>([])
     const [characterEpisodes, setCharactersEpisodes] = React.useState<ApiRespnse.Episode[][]>([])
+
+    const handlePageChange = React.useCallback(async (page: string) => {
+        setIsLoading(true)
+
+        setPageCounter(page)
+        const selectedPage = await getSelectedPage(Number.parseInt(page))
+        setCharacters(selectedPage)
+
+        setIsLoading(false)
+    }, [])
 
     const handleSelectCharacter = React.useCallback(async (characterId: string, characterName: string) => {
         setIsLoading(true)
@@ -45,8 +57,6 @@ export const BreakingBadProvider: React.FC = ({ children }) => {
         const firstTenCharacters = await getFirstTenCharacters()
         setCharacters(firstTenCharacters)
 
-        setPageCounter(1)
-
         setIsLoading(false)
     }, [])
 
@@ -62,6 +72,7 @@ export const BreakingBadProvider: React.FC = ({ children }) => {
             // setIsLoading,
             pageCounter,
             // setPageCounter,
+            handlePageChange,
             selectedCharacter,
             // setSelectedCharacter,
             handleSelectCharacter,
@@ -70,7 +81,15 @@ export const BreakingBadProvider: React.FC = ({ children }) => {
             characterEpisodes,
             // setCharactersEpisodes,
         }),
-        [characterEpisodes, characters, handleSelectCharacter, isLoading, pageCounter, selectedCharacter],
+        [
+            isLoading,
+            pageCounter,
+            handlePageChange,
+            selectedCharacter,
+            handleSelectCharacter,
+            characters,
+            characterEpisodes,
+        ]
     )
 
     return <BreakingBadContext.Provider value={context}>{children}</BreakingBadContext.Provider>

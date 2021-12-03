@@ -1,9 +1,8 @@
-// Next.js API route support: https://nextjs.org/docs/api-routes/introduction
 import axios from 'axios'
 
 const STATUS_OK = 200
 
-// POST: 'http://localhost:3000/api/episodes'
+// GET: 'https://www.breakingbadapi.com/api/characters/:characterId'
 const getSelectedCharacter = async (characterId: number | string): Promise<ApiRespnse.Character[]> => {
     const url = `https://www.breakingbadapi.com/api/characters/${characterId}`
 

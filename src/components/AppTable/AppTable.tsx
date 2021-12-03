@@ -21,7 +21,7 @@ const AppTable: React.FC = () => {
     return (
         <TableContainer component={Paper}>
             <Table sx={{ minWidth: 400 }} aria-label="caption table">
-                <caption>Breaking Bad Facts</caption>
+                <caption>Breaking Bad Character&apos;s Facts</caption>
                 <TableHead>
                     <TableRow>
                         <TableCell align="left">#</TableCell>

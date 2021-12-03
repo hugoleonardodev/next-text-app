@@ -4,6 +4,7 @@ import axios from 'axios'
 const STATUS_OK = 200
 
 // POST: 'http://localhost:3000/api/episodes'
+// check /page/api/episodes.ts
 const postCharacterNameToGetEpisodes = async (characterName: string): Promise<ApiRespnse.Episode[][]> => {
     const url = `http://localhost:3000/api/episodes`
 
